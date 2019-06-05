@@ -1,0 +1,6 @@
+framework module Pods_SuperPadsTests {
+  umbrella header "Pods-SuperPadsTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

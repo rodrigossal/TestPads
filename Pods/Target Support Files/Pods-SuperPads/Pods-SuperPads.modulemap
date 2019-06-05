@@ -1,0 +1,6 @@
+framework module Pods_SuperPads {
+  umbrella header "Pods-SuperPads-umbrella.h"
+
+  export *
+  module * { export * }
+}

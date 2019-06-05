@@ -10,9 +10,15 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class PadSequence {
+struct Pad {
+    let color: String
+    let pad: Int
+    let time: TimeInterval
+}
+
+class RequestPadSequence {
     
-    var color = [String]()
+    var sequence = [Pad]()
     
     init() {
         Alamofire.request("https://next-opala-storage.s3-sa-east-1.amazonaws.com/teste/example.json").responseJSON { response in
@@ -23,7 +29,8 @@ class PadSequence {
                     //                    print("JSON: \(json)") // serialized json response
                     let swiftyJson = JSON(json)
                     for item in swiftyJson.arrayValue{
-                        print(item["color"].stringValue)
+                        self.sequence.append(Pad(color: item["color"].stringValue, pad: item["pad"].intValue, time: item["time"].doubleValue))
+//                        print(self.sequence)
                     }
                     
                 }
